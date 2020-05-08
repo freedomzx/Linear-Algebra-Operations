@@ -22,6 +22,9 @@ public class transformations{
 	 */
 	public static void rref(Scanner in) {
 		double[][] matrix = matrixHelpers.getMatrix(in);
-		
+		rref.gaussElim(in, matrix);
+		System.out.println("RREF form:");
+		matrixHelpers.printSingle(matrix);
 	}
+	
 }

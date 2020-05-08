@@ -14,6 +14,7 @@ public class driver{
 			else if(command.contentEquals("subtract")) basicOperations.subtract(in);
 			else if(command.contentEquals("multiply")) basicOperations.multiply(in);
 			else if(command.contentEquals("transpose")) transformations.transpose(in);
+			else if(command.contentEquals("rref")) transformations.rref(in);
 			else if(command.contentEquals("quit")) break;
 			else System.out.println("Unknown command... Please try again.");
 		}
