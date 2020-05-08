@@ -5,15 +5,14 @@ public class operations{
 	/** gets two matrices and multiples them
 	 * @return two matrices multiplied
 	 */
-	public static void multiply(){
-		Scanner in = new Scanner(System.in);
+	public static void multiply(Scanner in){
 		System.out.print("Are we multiplying a matrix by a scalar, or two matrices together?\n\"1\" for scalar, \"2\" for two matrices: ");
 		int mode = in.nextInt();
 		
 		if(mode == 1) {//mult by scalar
 			System.out.print("Scalar to multiply matrix by: ");
-			int scalar = in.nextInt();
-			int matrix[][] = matrixHelpers.getMatrix();
+			double scalar = in.nextDouble();
+			double matrix[][] = matrixHelpers.getMatrix(in);
 			System.out.println("Result of multiplying matrix by " + scalar + ": ");
 			for(int i = 0; i < matrix.length; i++) {
 				for(int j = 0; j < matrix[0].length; j++) {
@@ -24,19 +23,13 @@ public class operations{
 		}
 		
 		else { //mult 2 matrices
-			int matrices[][][] = matrixHelpers.getTwoMatrices("multiply");
+			double matrices[][][] = matrixHelpers.getTwoMatrices("multiply", in);
 			if(matrices == null) {
-				in.close();
 				return; //not equal in columns of matrix 1 and rows of matrix 2
 			}
 			matrixHelpers.printDouble(matrices);
-			System.out.print("Test: ");
-			int test = 0;
-			if(in.hasNext()) test = in.nextInt();
-			System.out.print(test);
 		}
 		
-		in.close();
 		return;
 	}
 }

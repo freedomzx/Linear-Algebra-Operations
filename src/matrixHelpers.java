@@ -5,17 +5,16 @@ public class matrixHelpers{
 	 * params: none
 	 * @return single matrix
 	 */
-	public static int[][] getMatrix(){
-		Scanner in = new Scanner(System.in);
+	public static double[][] getMatrix(Scanner in){
 		System.out.print("Please enter the number of rows: ");
 		int rows = in.nextInt();
 		System.out.print("Please enter the number of columns: ");
 		int columns = in.nextInt();
-		int toReturn[][] = new int[rows][columns];
+		double toReturn[][] = new double[rows][columns];
 		for(int i = 1; i <= rows; i++) {
 			for(int j = 1; j <= columns; j++) {
 				System.out.println("Number at: (" + i + "," + j + ")");
-				toReturn[i-1][j-1] = in.nextInt();
+				toReturn[i-1][j-1] = in.nextDouble();
 			}
 		}
 		
@@ -26,7 +25,6 @@ public class matrixHelpers{
 			}
 			System.out.println();
 		}
-		in.close();
 		return toReturn;
 	}
 	
@@ -34,19 +32,17 @@ public class matrixHelpers{
 	 * params: none
 	 * @return a 3d matrix, index 0 holds the first matrix and index 1 holds the second matrix
 	 */
-	public static int[][][] getTwoMatrices(String mode){
-		Scanner in = new Scanner(System.in);
-		
+	public static double[][][] getTwoMatrices(String mode, Scanner in){
 		System.out.println("Initializing first matrix.");
 		System.out.print("Please enter the number of rows: ");
 		int rows = in.nextInt();
 		System.out.print("Please enter the number of columns: ");
 		int columns = in.nextInt();
-		int toReturn[][] = new int[rows][columns];
+		double toReturn[][] = new double[rows][columns];
 		for(int i = 1; i <= rows; i++) {
 			for(int j = 1; j <= columns; j++) {
 				System.out.println("Number at: (" + i + "," + j + ")");
-				toReturn[i-1][j-1] = in.nextInt();
+				toReturn[i-1][j-1] = in.nextDouble();
 			}
 		}
 		
@@ -56,22 +52,20 @@ public class matrixHelpers{
 		
 		if(mode.equals("multiply") && columns != rows1) {
 			System.out.println("The number of columns of the first matrix and the number of rows of the second matrix must match to multiply.");
-			in.close();
 			return null;
 		}
 		
 		System.out.print("Please enter the number of columns: ");
 		int columns1 = in.nextInt();
-		int toReturn1[][] = new int[rows1][columns1];
+		double toReturn1[][] = new double[rows1][columns1];
 		for(int i = 1; i <= rows1; i++) {
 			for(int j = 1; j <= columns1; j++) {
 				System.out.println("Number at: (" + i + "," + j + ")");
-				toReturn1[i-1][j-1] = in.nextInt();
+				toReturn1[i-1][j-1] = in.nextDouble();
 			}
 		}
 		
-		int toReturnFinal[][][] = {toReturn, toReturn1};
-		in.close();
+		double toReturnFinal[][][] = {toReturn, toReturn1};
 		return toReturnFinal;
 	}
 	
@@ -79,7 +73,7 @@ public class matrixHelpers{
 	 * @params a matrix
 	 * @return nothing
 	 */
-	public static void printSingle(int[][] matrix) {
+	public static void printSingle(double[][] matrix) {
 		for(int i = 0; i < matrix.length; i++) {
 			for(int j = 0; j < matrix[0].length; j++) {
 				System.out.print(matrix[i][j] + " ");
@@ -93,7 +87,7 @@ public class matrixHelpers{
 	 * @param matrices
 	 * @return nothing
 	 */
-	public static void printDouble(int[][][] matrices) {
+	public static void printDouble(double[][][] matrices) {
 		for(int q = 0; q < 2; q++) {
 			if(q == 0) System.out.println("Matrix 1:");
 			else System.out.println("Matrix 2:");
