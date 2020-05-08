@@ -15,4 +15,13 @@ public class transformations{
 			System.out.println();
 		}
 	}
+	
+	/**
+	 * prints rref of matrix
+	 * @param in scanner
+	 */
+	public static void rref(Scanner in) {
+		double[][] matrix = matrixHelpers.getMatrix(in);
+		
+	}
 }
