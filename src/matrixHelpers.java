@@ -32,7 +32,7 @@ public class matrixHelpers{
 	 * params: none
 	 * @return a 3d matrix, index 0 holds the first matrix and index 1 holds the second matrix
 	 */
-	public static double[][][] getTwoMatrices(String mode, Scanner in){
+	public static double[][][] getTwoMatrices(Scanner in, String mode){
 		System.out.println("Initializing first matrix.");
 		System.out.print("Please enter the number of rows: ");
 		int rows = in.nextInt();
@@ -57,6 +57,14 @@ public class matrixHelpers{
 		
 		System.out.print("Please enter the number of columns: ");
 		int columns1 = in.nextInt();
+		
+		if(mode.contentEquals("add") || mode.contentEquals("subtract")) {
+			if(columns != columns1 || rows != rows1) {
+				System.out.println("Matrices must have the same dimensions to add/subtract.");
+				return null;
+			}
+		}
+		
 		double toReturn1[][] = new double[rows1][columns1];
 		for(int i = 1; i <= rows1; i++) {
 			for(int j = 1; j <= columns1; j++) {
@@ -66,6 +74,8 @@ public class matrixHelpers{
 		}
 		
 		double toReturnFinal[][][] = {toReturn, toReturn1};
+		System.out.println("Matrices:");
+		printDouble(toReturnFinal);
 		return toReturnFinal;
 	}
 	
