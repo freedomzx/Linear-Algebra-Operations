@@ -34,7 +34,6 @@ public class rref{
 					indexMax = j;
 				}
 			}
-			
 			if(matrix[i][indexMax] == 0) swapRow(matrix, i, indexMax);
 			
 			for(int j = i+1; j < matrix.length; j++) {
@@ -45,5 +44,9 @@ public class rref{
 				matrix[j][i] = 0;
 			}
 		}
+	}
+	
+	public static void backwardsElimination(double matrix[][]) {
+		
 	}
 }
